@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="A private interactive museum and cinematic surprise celebrating an unbreakable friendship.">
+  <meta name="theme-color" content="#10151D">
+  <title>Museum of Our Friendship — A Private Exhibition</title>
+
+  <!-- Typography: Playfair Display, Plus Jakarta Sans, Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/welcome.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/puzzle.css">
+  <link rel="stylesheet" href="css/letter.css">
+  <link rel="stylesheet" href="css/promises.css">
+  <link rel="stylesheet" href="css/final.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Background Particle & Confetti Canvases -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Museum Master Container -->
+  <div id="museum-app">
+
+    <!-- Floating Discreet Exhibition Navigation Header -->
+    <header class="museum-header hidden" id="museum-header" role="banner">
+      <div class="header-brand" aria-label="Museum Exhibition">MUSEUM ARCHIVE</div>
+
+      <nav class="room-progress-nav" id="room-progress-nav" aria-label="Exhibition Room Navigation">
+        <!-- Injected dynamically via navigation.js -->
+      </nav>
+
+      <div class="audio-control-widget" aria-label="Audio Controls">
+        <button class="audio-btn" id="audio-toggle-btn" aria-label="Mute or Play Background Music" title="Background Music">
+          <div class="audio-equalizer" aria-hidden="true">
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+            <span class="eq-bar"></span>
+          </div>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Experience Stages Container -->
+    <main class="room-container" id="main-content">
+
+      <!-- ==========================================
+           STAGE 1 — CINEMATIC WELCOME (MUSEUM ENTRANCE)
+           ========================================== -->
+      <section class="museum-room active theme-dark" id="room-welcome" aria-label="Stage 1: Welcome Entrance">
+        <div class="welcome-spotlight" aria-hidden="true"></div>
+
+        <div class="room-content welcome-content">
+          <header class="welcome-header">
+            <span class="badge" id="welcome-badge">PRIVATE EXHIBITION · ROOM 01</span>
+            <h1 class="welcome-title" id="welcome-title">Museum of Our Friendship</h1>
+            <p class="welcome-subtitle" id="welcome-subtitle">
+              A digital archive of laughter, shared secrets, quiet support, and the little moments that became our greatest adventures.
+            </p>
+          </header>
+
+          <!-- 3D Illustrated Double Museum Doors -->
+          <div class="door-portal-stage" id="door-portal-stage" role="button" tabindex="0" aria-label="Open museum double doors and step inside">
+            <div class="door-chamber-light" aria-hidden="true"></div>
+            <div class="door-frame-wrapper">
+              <img src="assets/illustrations/museum_door.svg" class="door-graphic-svg" alt="Ornate museum double entrance doors with brass plaque">
+            </div>
+          </div>
+
+          <!-- Entrance Actions -->
+          <div class="welcome-actions">
+            <button class="btn btn-primary" id="welcome-enter-btn">
+              Step Inside The Museum →
+            </button>
+            <span class="welcome-hint" id="welcome-hint">Click the museum entrance or button above to step inside</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           STAGE 2 — ROOM 2: FRIENDSHIP TIMELINE (THE ARCHIVES)
+           ========================================== -->
+      <section class="museum-room theme-cream" id="room-timeline" aria-label="Stage 2: Friendship Timeline">
+        <div class="room-content">
+          <header class="room-editorial-header">
+            <span class="badge badge-teal">ROOM 02 · THE ARCHIVES</span>
+            <h2 id="timeline-heading">Every Single Day Matters</h2>
+            <p>Our journey didn't begin yesterday — it has been built minute by minute, story by story.</p>
+          </header>
+
+          <article class="timeline-card-main">
+            <!-- Central Milestone Days Counter -->
+            <div class="timeline-milestone-hero">
+              <div class="milestone-days-number" id="milestone-days-val" aria-live="polite">0</div>
+              <div class="milestone-days-label">Days of Unconditional Friendship</div>
+            </div>
+
+            <!-- Personal Sentimental Quote -->
+            <blockquote class="timeline-personal-quote" id="timeline-personal-quote">
+              “Some people stumble into our lives by chance, but staying by each other's side has been the most beautiful decision.”
+            </blockquote>
+
+            <!-- Supporting Statistics Grid -->
+            <div class="timeline-stats-grid" role="region" aria-label="Friendship Statistics">
+              <div class="stat-item">
+                <span class="stat-value" id="stat-years-val">—</span>
+                <span class="stat-label">Years of Memories</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="stat-weekends-val">—</span>
+                <span class="stat-label">Weekends Shared</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="stat-seasons-val">—</span>
+                <span class="stat-label">Seasons Weathered</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-value" id="stat-conversations-val">—</span>
+                <span class="stat-label">Late-Night Chats</span>
+              </div>
+            </div>
+
+            <!-- Forward Action Button -->
+            <button class="btn btn-teal" data-go-room="room-puzzle">
+              Explore The Memory Gallery →
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           STAGE 3 — ROOM 4: PHOTO MEMORY PUZZLE
+           ========================================== -->
+      <section class="museum-room theme-cream" id="room-puzzle" aria-label="Stage 3: Memory Puzzle">
+        <div class="room-content puzzle-room-wrapper">
+          <header class="room-editorial-header">
+            <span class="badge badge-teal">ROOM 04 · RECONSTRUCTING MEMORIES</span>
+            <h2>Piece Together Our Memory</h2>
+            <p>Click or tap two tiles to swap their positions until the sunset memory is fully restored.</p>
+          </header>
+
+          <!-- Status Bar -->
+          <div class="puzzle-dashboard-bar" role="status" aria-label="Puzzle Status">
+            <div class="puzzle-metrics">
+              <span>Moves: <strong class="metric-highlight" id="puzzle-moves-val">0</strong></span>
+              <span>Time: <strong class="metric-highlight" id="puzzle-time-val">0:00</strong></span>
+            </div>
+            <div class="puzzle-controls">
+              <button class="btn-pill-small" id="puzzle-hint-btn">Show Hint</button>
+              <button class="btn-pill-small" id="puzzle-shuffle-btn">Shuffle ↻</button>
+            </div>
+          </div>
+
+          <!-- 3x3 Puzzle Arena Board -->
+          <div class="puzzle-board-frame" id="puzzle-board-frame">
+            <div class="puzzle-hint-overlay" id="puzzle-hint-overlay" aria-hidden="true"></div>
+            <div class="puzzle-grid" id="puzzle-grid" role="grid" aria-label="3 by 3 Photo Jigsaw Puzzle">
+              <!-- Injected dynamically via puzzle.js -->
+            </div>
+
+            <!-- Solved Celebration Overlay -->
+            <div class="puzzle-solved-banner" id="puzzle-solved-banner" role="dialog" aria-modal="true" aria-label="Puzzle Solved">
+              <h3>Memory Reconstructed! ★</h3>
+              <p>Every piece of our story fits together just right. A personal letter is waiting for you in the next chamber.</p>
+              <button class="btn btn-teal" data-go-room="room-letter">
+                Proceed to The Reading Room →
+              </button>
+            </div>
+          </div>
+
+          <p class="puzzle-instructions">
+            Tip: Completed tiles glow with a subtle badge in the corner when placed in their rightful place.
+          </p>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           STAGE 4 — ROOM 6: THE READING ROOM (LETTER)
+           ========================================== -->
+      <section class="museum-room theme-cream" id="room-letter" aria-label="Stage 4: The Reading Room">
+        <div class="room-content letter-room-wrapper">
+          <header class="room-editorial-header">
+            <span class="badge badge-teal">ROOM 06 · THE READING ROOM</span>
+            <h2>A Letter Kept Just For You</h2>
+            <p>Some words are too meaningful to stay unsaid. Tap the envelope below to break the seal and read.</p>
+          </header>
+
+          <!-- 3D Interactive Envelope -->
+          <div class="envelope-stage" id="envelope-stage" role="button" tabindex="0" aria-label="Unseal envelope and read personal letter" aria-expanded="false">
+            <div class="envelope-box">
+              <div class="envelope-pocket-left"></div>
+              <div class="envelope-pocket-right"></div>
+              <div class="envelope-pocket-bottom"></div>
+              <div class="envelope-flap-top"></div>
+              <div class="envelope-wax-seal">
+                <img src="assets/illustrations/wax_seal.svg" alt="Antique red wax seal with embossed friendship emblem">
+              </div>
+            </div>
+          </div>
+
+          <!-- Letter Sheet (Revealed upon opening) -->
+          <article class="letter-parchment-sheet" id="letter-parchment-sheet">
+            <div class="letter-header-meta">
+              <span id="letter-meta-label">ARCHIVAL CORRESPONDENCE</span>
+              <span id="letter-date">A Day to Remember</span>
+            </div>
+
+            <h3 class="letter-salutation" id="letter-salutation">Dearest Friend,</h3>
+
+            <div class="letter-body-content" id="letter-body">
+              <!-- Paragraphs populated from CONFIG -->
+            </div>
+
+            <footer class="letter-sign-off">
+              <p class="letter-closing-phrase" id="letter-closing">With boundless gratitude,</p>
+              <div class="letter-handwritten-signature" id="letter-signature">Your Forever Friend</div>
+            </footer>
+          </article>
+
+          <!-- Unlocked Continue Button -->
+          <button class="btn btn-teal" id="letter-continue-btn" data-go-room="room-promises" style="display: none;">
+            Review The Friendship Covenant →
+          </button>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           STAGE 5 — ROOM 7: FRIENDSHIP PROMISES (THE COVENANT)
+           ========================================== -->
+      <section class="museum-room theme-cream" id="room-promises" aria-label="Stage 5: Friendship Covenant">
+        <div class="room-content">
+          <header class="room-editorial-header">
+            <span class="badge badge-teal">ROOM 07 · THE COVENANT</span>
+            <h2>The Friendship Agreement</h2>
+            <p>Every lifelong friendship needs its sacred rules. Review all 5 clauses and sign below to officially ratify the pact.</p>
+          </header>
+
+          <article class="covenant-parchment-document">
+            <header class="covenant-doc-header">
+              <h3>OFFICIAL PACT OF PERPETUAL FRIENDSHIP</h3>
+              <p>Between Two Inseparable Souls · Binding for All Future Chapters</p>
+            </header>
+
+            <!-- 5 Clauses Checkbox List -->
+            <div class="covenant-clause-list" id="covenant-clause-list" role="group" aria-label="Friendship Clauses">
+              <!-- Clauses injected dynamically from CONFIG -->
+            </div>
+
+            <!-- Signing & Ratification -->
+            <div class="covenant-signing-section">
+              <div class="signature-row">
+                <label for="covenant-signature-input" class="signature-label">
+                  Party of the Second Part (Your Signature):
+                </label>
+                <input type="text" 
+                       id="covenant-signature-input" 
+                       class="signature-input" 
+                       placeholder="Type your full name to sign..."
+                       autocomplete="off"
+                       maxlength="60">
+              </div>
+
+              <!-- Live Validation Status Feedback -->
+              <div class="covenant-validation-status" id="covenant-validation-status" role="status" aria-live="polite">
+                Please review and check all 5 clauses and enter your signature.
+              </div>
+
+              <button class="btn btn-primary" id="covenant-sign-btn" disabled>
+                Ratify &amp; Seal Agreement
+              </button>
+
+              <!-- Certified Ratification Stamp (Appears after signing) -->
+              <div class="covenant-ratified-certificate" id="covenant-ratified-certificate" role="region" aria-label="Ratification Certificate">
+                <img src="assets/illustrations/stamp_verified.svg" class="ratified-stamp-img" alt="Official Archives Ratified &amp; Sealed Stamp">
+                <div class="ratified-signee-display" id="ratified-signee-name">Friend's Name</div>
+                <h4 class="ratified-title">Agreement Officially Ratified &amp; Recorded</h4>
+                <p class="ratified-details" id="ratified-date-text">Ratified into the archives on this special day.</p>
+                <button class="btn btn-teal" id="covenant-next-btn" data-go-room="room-final" style="display: none;">
+                  Reveal The Grand Finale →
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==========================================
+           STAGE 6 — FINAL SURPRISE (PERMANENT COLLECTION)
+           ========================================== -->
+      <section class="museum-room theme-dark" id="room-final" aria-label="Stage 6: Grand Finale">
+        <div class="room-content final-room-wrapper">
+          <header class="room-editorial-header">
+            <span class="badge" id="final-badge">GRAND FINALE · PERMANENT COLLECTION</span>
+            <h2 class="final-heading" id="final-heading">To Every Chapter Yet To Come <em>✨</em></h2>
+            <p class="final-subheading" id="final-subheading">Thank you for making the world a warmer, kinder place just by being in it.</p>
+          </header>
+
+          <!-- Centerpiece Gilded Artwork -->
+          <div class="final-artwork-stage">
+            <img src="assets/images/celebration_memory.svg" 
+                 id="final-artwork-img" 
+                 class="final-artwork-img" 
+                 alt="Exhibit #07 · The Unbreakable Bond">
+          </div>
+
+          <!-- Emotional Reflection Message -->
+          <div class="final-typography-block">
+            <div class="final-message-card">
+              <p class="final-message-text" id="final-message-text">
+                “Some friendships are measured in years, but the best ones are measured in how safe you feel being entirely yourself. Here's to everything we've survived, everything we've built, and all the unwritten memories waiting around the corner.”
+              </p>
+              <div class="final-toast-tag" id="final-toast-tag">Cheers to our eternal bond ✨</div>
+            </div>
+
+            <!-- Final Actions -->
+            <div class="final-actions-row">
+              <button class="btn btn-replay" id="final-replay-btn">
+                Relive The Museum Journey ↻
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- JavaScript Modules in Strict Dependency Order -->
+  <script src="js/config.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/puzzle.js"></script>
+  <script src="js/letter.js"></script>
+  <script src="js/promises.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/final.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

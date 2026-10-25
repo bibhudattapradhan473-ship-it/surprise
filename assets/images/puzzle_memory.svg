@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <!-- Sunset Sky Gradient -->
+    <linearGradient id="sunsetSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B1E34"/>
+      <stop offset="25%" stop-color="#3D2B4A"/>
+      <stop offset="50%" stop-color="#7B3A54"/>
+      <stop offset="70%" stop-color="#C2594E"/>
+      <stop offset="85%" stop-color="#E99A2D"/>
+      <stop offset="100%" stop-color="#FCD37B"/>
+    </linearGradient>
+
+    <!-- Warm Golden Sun Glow -->
+    <radialGradient id="sunGlow" cx="50%" cy="65%" r="45%">
+      <stop offset="0%" stop-color="#FFF4D0" stop-opacity="1"/>
+      <stop offset="35%" stop-color="#FFBE5B" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#E99A2D" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#C2594E" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Mountain Silhouettes -->
+    <linearGradient id="mountainsBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#552C46"/>
+      <stop offset="100%" stop-color="#2D1525"/>
+    </linearGradient>
+
+    <linearGradient id="mountainsFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#291A2C"/>
+      <stop offset="100%" stop-color="#120A14"/>
+    </linearGradient>
+
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF7CC" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#FFB300" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FF6F00" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="600" height="600" fill="url(#sunsetSky)"/>
+
+  <!-- Stars in Upper Sky -->
+  <g fill="#FFF" opacity="0.85">
+    <circle cx="80" cy="50" r="1.5"/>
+    <circle cx="140" cy="85" r="2"/>
+    <circle cx="210" cy="40" r="1.2"/>
+    <circle cx="290" cy="65" r="2.5"/>
+    <circle cx="370" cy="45" r="1.5"/>
+    <circle cx="450" cy="80" r="2.2"/>
+    <circle cx="530" cy="55" r="1.8"/>
+    <circle cx="490" cy="120" r="1.2"/>
+    <circle cx="100" cy="115" r="2"/>
+    <circle cx="25" cy="90" r="1.5"/>
+    <circle cx="560" cy="110" r="1.4"/>
+  </g>
+
+  <!-- Crescent Moon in Top Right -->
+  <path d="M 505 55 A 22 22 0 0 0 490 85 A 25 25 0 0 1 505 55 Z" fill="#FFE8A3" opacity="0.9"/>
+
+  <!-- Distant Setting Sun Sphere & Horizon Glow -->
+  <circle cx="300" cy="380" r="180" fill="url(#sunGlow)"/>
+  <circle cx="300" cy="360" r="45" fill="#FFFBE6"/>
+
+  <!-- Distant Layer of Soft Mountains -->
+  <path d="M 0 420 Q 90 350 200 370 Q 320 340 440 380 Q 520 360 600 400 L 600 600 L 0 600 Z" fill="url(#mountainsBack)" opacity="0.75"/>
+
+  <!-- Closer Ridge with Pine Silhouettes -->
+  <path d="M 0 440 Q 120 400 240 430 Q 380 395 500 425 Q 560 415 600 435 L 600 600 L 0 600 Z" fill="url(#mountainsFront)"/>
+
+  <!-- Rooftop / Pier Decking Foreground -->
+  <path d="M 0 490 L 600 490 L 600 600 L 0 600 Z" fill="#140D17"/>
+  <!-- Wooden planks perspective lines -->
+  <line x1="0" y1="525" x2="600" y2="525" stroke="#251A2B" stroke-width="2"/>
+  <line x1="0" y1="565" x2="600" y2="565" stroke="#251A2B" stroke-width="2"/>
+
+  <!-- Warm String Lights Swagged Across -->
+  <path d="M 0 160 Q 150 230 300 170 Q 450 230 600 160" fill="none" stroke="#2D1C1B" stroke-width="2.5"/>
+  <!-- Glowing Light Bulbs -->
+  <g>
+    <!-- Left loop bulbs -->
+    <circle cx="50" cy="180" r="14" fill="url(#lanternGlow)"/>
+    <circle cx="50" cy="180" r="4" fill="#FFFFEE"/>
+    <circle cx="120" cy="205" r="16" fill="url(#lanternGlow)"/>
+    <circle cx="120" cy="205" r="5" fill="#FFFFEE"/>
+    <circle cx="190" cy="210" r="16" fill="url(#lanternGlow)"/>
+    <circle cx="190" cy="210" r="5" fill="#FFFFEE"/>
+    <circle cx="260" cy="190" r="15" fill="url(#lanternGlow)"/>
+    <circle cx="260" cy="190" r="4.5" fill="#FFFFEE"/>
+    <!-- Right loop bulbs -->
+    <circle cx="340" cy="190" r="15" fill="url(#lanternGlow)"/>
+    <circle cx="340" cy="190" r="4.5" fill="#FFFFEE"/>
+    <circle cx="410" cy="210" r="16" fill="url(#lanternGlow)"/>
+    <circle cx="410" cy="210" r="5" fill="#FFFFEE"/>
+    <circle cx="480" cy="205" r="16" fill="url(#lanternGlow)"/>
+    <circle cx="480" cy="205" r="5" fill="#FFFFEE"/>
+    <circle cx="550" cy="180" r="14" fill="url(#lanternGlow)"/>
+    <circle cx="550" cy="180" r="4" fill="#FFFFEE"/>
+  </g>
+
+  <!-- Two Friends Sitting Together on the Edge, Looking at Sunset -->
+  <g fill="#0C060D">
+    <!-- Left Friend Silhouette -->
+    <!-- Head & Hair -->
+    <circle cx="260" cy="425" r="22"/>
+    <path d="M 240 420 C 235 440, 245 455, 255 455 C 265 455, 275 440, 275 420 Z"/>
+    <!-- Torso / Jacket -->
+    <path d="M 235 445 C 240 440, 280 440, 285 445 L 290 515 L 230 515 Z"/>
+    <!-- Arm wrapping around friend / drinking from mug -->
+    <path d="M 280 460 Q 300 465 315 470 L 310 485 Q 295 480 275 475 Z"/>
+    <!-- Legs hanging down edge -->
+    <path d="M 235 515 L 245 565 L 260 565 L 255 515 Z"/>
+    <path d="M 265 515 L 275 565 L 290 565 L 285 515 Z"/>
+
+    <!-- Right Friend Silhouette -->
+    <!-- Head & Bun/Hat -->
+    <circle cx="340" cy="420" r="21"/>
+    <circle cx="348" cy="402" r="9"/> <!-- hair bun -->
+    <!-- Torso -->
+    <path d="M 315 440 C 320 435, 360 435, 365 440 L 370 515 L 310 515 Z"/>
+    <!-- Left arm raised pointing at star or horizon -->
+    <path d="M 355 455 Q 385 435 410 415 L 415 425 Q 390 445 360 470 Z"/>
+    <!-- Legs hanging down edge -->
+    <path d="M 315 515 L 325 565 L 340 565 L 335 515 Z"/>
+    <path d="M 345 515 L 355 565 L 370 565 L 365 515 Z"/>
+
+    <!-- Steaming Coffee Mugs on Deck -->
+    <rect x="205" y="475" width="16" height="18" rx="3" fill="#1C1220"/>
+    <path d="M 205 480 C 197 480, 197 490, 205 490" fill="none" stroke="#1C1220" stroke-width="2"/>
+    
+    <rect x="385" y="475" width="16" height="18" rx="3" fill="#1C1220"/>
+    <path d="M 401 480 C 409 480, 409 490, 401 490" fill="none" stroke="#1C1220" stroke-width="2"/>
+  </g>
+
+  <!-- Tiny Steam Spirals -->
+  <path d="M 213 470 Q 210 460 216 450" fill="none" stroke="#FFDFBA" stroke-width="1.5" opacity="0.6"/>
+  <path d="M 393 470 Q 396 460 390 450" fill="none" stroke="#FFDFBA" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Museum Polaroid Bottom Caption Banner Overlay -->
+  <rect x="40" y="525" width="520" height="48" rx="6" fill="#F6F0E3" opacity="0.95"/>
+  <text x="60" y="555" font-family="'Playfair Display', Georgia, serif" font-size="16" font-style="italic" font-weight="700" fill="#26312F">
+    "Some sunsets are beautiful, but they're timeless with you."
+  </text>
+  <text x="535" y="555" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" text-anchor="end" fill="#79796F">
+    OCTOBER MEMORY
+  </text>
+</svg>

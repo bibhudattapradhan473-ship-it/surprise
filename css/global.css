@@ -1,0 +1,217 @@
+/**
+ * GLOBAL STYLES, RESETS, ACCESSIBILITY, BUTTON PRIMITIVES
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  background-color: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+  transition: background-color var(--transition-slow);
+}
+
+/* Base Headings */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, textarea {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Accessible Focus States */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Ambient Particles & Canvas Layer */
+#ambient-canvas, #confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: var(--z-background);
+}
+
+#confetti-canvas {
+  z-index: var(--z-modal);
+}
+
+/* Exhibition Pill Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-archive);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  background: rgba(233, 154, 45, 0.12);
+  color: var(--color-amber);
+  border: 1px solid rgba(233, 154, 45, 0.3);
+  margin-bottom: 1.25rem;
+}
+
+.badge-dark {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-dark-muted);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.badge-teal {
+  background: rgba(23, 111, 101, 0.12);
+  color: var(--color-teal);
+  border-color: rgba(23, 111, 101, 0.3);
+}
+
+/* Button System */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.75rem;
+  min-height: 48px; /* Touch target minimum */
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  letter-spacing: 0.02em;
+  transition: all var(--transition-normal);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--color-amber);
+  color: #171108;
+  box-shadow: 0 4px 14px var(--color-amber-glow);
+  font-weight: 700;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-amber-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--color-amber-glow);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-teal {
+  background: var(--color-teal);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px var(--color-teal-glow);
+}
+
+.btn-teal:hover:not(:disabled) {
+  background: var(--color-teal-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--color-teal-glow);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink-primary);
+  border: 1.5px solid var(--color-cream-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: var(--color-ink-secondary);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-icon {
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

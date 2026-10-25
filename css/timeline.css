@@ -1,0 +1,142 @@
+/**
+ * STAGE 2 — ROOM 2: FRIENDSHIP TIMELINE (ARCHIVES)
+ */
+
+#room-timeline {
+  background-color: var(--color-cream-bg);
+  background-image: radial-gradient(#E8DFC9 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--color-ink-primary);
+}
+
+.timeline-card-main {
+  width: 100%;
+  max-width: 820px;
+  background: var(--color-cream-surface);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle Parchment Corner Embellishment */
+.timeline-card-main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--color-amber) 0%, var(--color-teal) 100%);
+}
+
+/* Prominent Friendship Day Counter Section */
+.timeline-milestone-hero {
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.milestone-days-number {
+  font-family: var(--font-display);
+  font-size: var(--font-size-giant);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-teal);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 12px rgba(23, 111, 101, 0.15);
+}
+
+.milestone-days-label {
+  font-family: var(--font-archive);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+
+/* Personal Quote Box */
+.timeline-personal-quote {
+  max-width: 620px;
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.25rem 1.75rem;
+  background: var(--color-cream-parchment);
+  border-left: 4px solid var(--color-amber);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-style: italic;
+  color: var(--color-ink-primary);
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Supporting Honest Statistics Grid */
+.timeline-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  background: var(--color-cream-bg);
+  border: 1px solid var(--color-cream-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-amber);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-ink-primary);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-secondary);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 768px) {
+  .timeline-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-card-main {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .timeline-personal-quote {
+    padding: 1rem 1.25rem;
+    font-size: var(--font-size-base);
+  }
+}

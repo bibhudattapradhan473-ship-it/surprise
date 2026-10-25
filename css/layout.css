@@ -1,0 +1,267 @@
+/**
+ * LAYOUT, ROOM CONTAINER, NAVIGATION BAR, AUDIO CONTROLLER
+ */
+
+/* Museum Master Wrapper */
+#museum-app {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Floating Discreet Exhibition Header / Progress Bar */
+.museum-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-floating-nav);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none; /* Let clicks pass through except on active buttons */
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.museum-header.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.header-brand {
+  pointer-events: auto;
+  font-family: var(--font-archive);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  background: rgba(16, 21, 29, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(233, 154, 45, 0.25);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Room Indicator Pills */
+.room-progress-nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(16, 21, 29, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.35rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-room-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-full);
+  color: var(--color-dark-muted);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-room-pill:hover:not(:disabled) {
+  color: var(--color-dark-text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-room-pill.active {
+  background: var(--color-amber);
+  color: #120C06;
+}
+
+.nav-room-pill.completed {
+  color: #79D1C3;
+}
+
+.nav-room-pill:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Floating Audio Widget */
+.audio-control-widget {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 21, 29, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-md);
+}
+
+.audio-btn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--color-amber);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.audio-btn:hover {
+  background: rgba(233, 154, 45, 0.15);
+  transform: scale(1.08);
+}
+
+.audio-btn.muted {
+  color: var(--color-dark-muted);
+}
+
+.audio-equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.eq-bar {
+  width: 2.5px;
+  background: var(--color-amber);
+  border-radius: 1px;
+  animation: eqPulse 1.2s ease-in-out infinite alternate;
+}
+
+.eq-bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+.eq-bar:nth-child(2) { height: 12px; animation-delay: 0.2s; }
+.eq-bar:nth-child(3) { height: 8px; animation-delay: 0.4s; }
+
+.audio-btn.muted .eq-bar,
+.audio-btn.paused .eq-bar {
+  animation: none !important;
+  height: 2px !important;
+  background: var(--color-dark-muted) !important;
+}
+
+@keyframes eqPulse {
+  0% { height: 3px; }
+  100% { height: 14px; }
+}
+
+/* Room Stages Container */
+.room-container {
+  flex: 1;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Room Section Transition Management */
+.museum-room {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98) translateY(12px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+  padding: 5.5rem 1.5rem 3.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.museum-room.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  position: relative;
+}
+
+/* Theme variations for rooms */
+.theme-dark {
+  background-color: var(--color-dark-bg);
+  color: var(--color-dark-text);
+}
+
+.theme-cream {
+  background-color: var(--color-cream-bg);
+  color: var(--color-ink-primary);
+}
+
+/* Room Inner Content Wrapper */
+.room-content {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+/* Editorial Top Header for Personal Rooms */
+.room-editorial-header {
+  margin-bottom: 2.25rem;
+  max-width: 720px;
+}
+
+.room-editorial-header h2 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-ink-primary);
+  margin-bottom: 0.75rem;
+}
+
+.room-editorial-header p {
+  font-size: var(--font-size-md);
+  color: var(--color-ink-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive Navigation Adjustments */
+@media (max-width: 768px) {
+  .museum-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .header-brand {
+    display: none; /* Conserve horizontal room on mobile */
+  }
+
+  .nav-room-pill {
+    padding: 0.25rem 0.45rem;
+    font-size: 0.7rem;
+  }
+
+  .museum-room {
+    padding: 4.5rem 1rem 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-room-pill span.pill-text {
+    display: none; /* Show only room number on tiny screens */
+  }
+}

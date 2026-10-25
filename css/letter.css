@@ -1,0 +1,242 @@
+/**
+ * STAGE 4 — ROOM 6: THE READING ROOM (LETTER)
+ */
+
+#room-letter {
+  background-color: var(--color-cream-bg);
+  background-image: radial-gradient(#E8DFC9 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--color-ink-primary);
+}
+
+.letter-room-wrapper {
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Envelope Container & 3D Stage */
+.envelope-stage {
+  perspective: 1200px;
+  width: min(440px, 90vw);
+  margin: 1.5rem auto 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* 3D Envelope Object */
+.envelope-box {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background: #E8DECA;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xl);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform var(--transition-normal);
+}
+
+.envelope-box:hover {
+  transform: translateY(-4px);
+}
+
+/* Envelope Front Left & Right Pockets */
+.envelope-pocket-left {
+  position: absolute;
+  inset: 0;
+  border-left: 220px solid #DFD3BD;
+  border-top: 130px solid transparent;
+  border-bottom: 130px solid transparent;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.envelope-pocket-right {
+  position: absolute;
+  inset: 0;
+  border-right: 220px solid #DFD3BD;
+  border-top: 130px solid transparent;
+  border-bottom: 130px solid transparent;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.envelope-pocket-bottom {
+  position: absolute;
+  inset: 0;
+  border-bottom: 140px solid #D2C4AB;
+  border-left: 220px solid transparent;
+  border-right: 220px solid transparent;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Top Triangular Flap with Wax Seal */
+.envelope-flap-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 145px solid #E4D8C1;
+  border-left: 220px solid transparent;
+  border-right: 220px solid transparent;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-cinematic), z-index 0.2s 0.3s;
+  z-index: 5;
+}
+
+/* Wax Seal Centered on Envelope Tip */
+.envelope-wax-seal {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 72px;
+  z-index: 6;
+  transition: transform var(--transition-fast), opacity 0.4s var(--ease-smooth);
+}
+
+.envelope-wax-seal img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.envelope-box:hover .envelope-wax-seal {
+  transform: translateX(-50%) scale(1.08);
+}
+
+/* Envelope Open State */
+.envelope-stage.opened .envelope-flap-top {
+  transform: rotateX(180deg);
+  z-index: 1; /* Moves behind the letter after flipping */
+}
+
+.envelope-stage.opened .envelope-wax-seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope-stage.opened .envelope-box {
+  cursor: default;
+  transform: none;
+}
+
+/* Letter Paper Document */
+.letter-parchment-sheet {
+  width: 100%;
+  max-width: 680px;
+  background: #FFFDF9;
+  border: 1px solid #E2D9C8;
+  border-radius: var(--radius-md);
+  padding: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth);
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.letter-parchment-sheet.revealed {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Archival Letter Header */
+.letter-header-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-cream-border);
+  padding-bottom: 1rem;
+  margin-bottom: 1.75rem;
+  font-family: var(--font-archive);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  color: var(--color-ink-muted);
+}
+
+.letter-salutation {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-ink-primary);
+  margin-bottom: 1.5rem;
+}
+
+.letter-body-content p {
+  font-size: var(--font-size-base);
+  line-height: 1.8;
+  color: #2F3B39;
+  margin-bottom: 1.35rem;
+}
+
+.letter-sign-off {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--color-cream-border);
+}
+
+.letter-closing-phrase {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--font-size-md);
+  color: var(--color-ink-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.letter-handwritten-signature {
+  font-family: var(--font-display);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-teal);
+  letter-spacing: 0.02em;
+}
+
+/* Mobile Envelope & Letter Adjustments */
+@media (max-width: 480px) {
+  .envelope-box {
+    height: 200px;
+  }
+  
+  .envelope-pocket-left, .envelope-pocket-right {
+    border-left-width: 170px;
+    border-right-width: 170px;
+    border-top-width: 100px;
+    border-bottom-width: 100px;
+  }
+
+  .envelope-pocket-bottom {
+    border-bottom-width: 110px;
+    border-left-width: 170px;
+    border-right-width: 170px;
+  }
+
+  .envelope-flap-top {
+    border-top-width: 115px;
+    border-left-width: 170px;
+    border-right-width: 170px;
+  }
+
+  .envelope-wax-seal {
+    width: 58px;
+    height: 58px;
+    top: 55px;
+  }
+
+  .letter-parchment-sheet {
+    padding: 1.75rem 1.25rem;
+  }
+}

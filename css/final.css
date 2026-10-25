@@ -1,0 +1,131 @@
+/**
+ * STAGE 6 — FINAL SURPRISE (GRAND FINALE)
+ */
+
+#room-final {
+  background: radial-gradient(circle at 50% 30%, #1C2738 0%, #10151D 65%, #0B0E14 100%);
+  color: var(--color-dark-text);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-room-wrapper {
+  width: 100%;
+  max-width: 840px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Masterpiece Frame Showcase */
+.final-artwork-stage {
+  width: min(440px, 90vw);
+  margin: 1.5rem auto 2.5rem;
+  position: relative;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+  transition: transform var(--transition-normal);
+}
+
+.final-artwork-stage:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.final-artwork-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+/* Final Reveal Typography */
+.final-typography-block {
+  text-align: center;
+  max-width: 660px;
+  margin-bottom: 2.5rem;
+}
+
+.final-heading {
+  font-size: var(--font-size-3xl);
+  color: var(--color-dark-text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.final-heading em {
+  color: var(--color-amber);
+  font-style: italic;
+}
+
+.final-subheading {
+  font-size: var(--font-size-lg);
+  color: #E2E8F0;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.final-message-card {
+  background: rgba(24, 32, 44, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(233, 154, 45, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2.25rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.final-message-text {
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  color: #F1F4F9;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.final-toast-tag {
+  font-family: var(--font-archive);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+}
+
+/* Final Interactive Action Row */
+.final-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn-replay {
+  background: transparent;
+  color: var(--color-dark-text);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-replay:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-dark-text);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .final-heading {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .final-message-card {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .final-artwork-stage {
+    width: 290px;
+  }
+}
