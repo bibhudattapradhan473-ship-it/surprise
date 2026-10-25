@@ -94,21 +94,21 @@ const PromisesModule = (function() {
     // Informative live status feedback (no intrusive alerts)
     if (statusNote) {
       if (isRatified) {
-        statusNote.textContent = "✓ Agreement is ratified and sealed in the archives.";
+        statusNote.textContent = "✓ Our promises are sealed with all my love.";
         statusNote.className = "covenant-validation-status ready";
       } else if (!allChecked && !hasSignature) {
         const uncheckedCount = Array.from(checks).filter(c => !c.checked).length;
-        statusNote.textContent = `Please review and check all ${uncheckedCount} remaining clauses and enter your signature.`;
+        statusNote.textContent = `Please read through the ${uncheckedCount} remaining promise${uncheckedCount > 1 ? 's' : ''} and add your name.`;
         statusNote.className = "covenant-validation-status";
       } else if (!allChecked) {
         const uncheckedCount = Array.from(checks).filter(c => !c.checked).length;
-        statusNote.textContent = `Almost there! ${uncheckedCount} clause${uncheckedCount > 1 ? 's' : ''} left to check.`;
+        statusNote.textContent = `Almost there! ${uncheckedCount} promise${uncheckedCount > 1 ? 's' : ''} left to read.`;
         statusNote.className = "covenant-validation-status";
       } else if (!hasSignature) {
-        statusNote.textContent = "All clauses checked! Please type your signature below to ratify.";
+        statusNote.textContent = "All promises read! Please type your name below to seal them.";
         statusNote.className = "covenant-validation-status";
       } else {
-        statusNote.textContent = "All requirements satisfied. You may now ratify the agreement!";
+        statusNote.textContent = "Ready! You can now seal our promises with love.";
         statusNote.className = "covenant-validation-status ready";
       }
     }
@@ -137,7 +137,7 @@ const PromisesModule = (function() {
 
     if (displayDate) {
       const today = new Date();
-      displayDate.textContent = `Ratified on ${today.toLocaleDateString(undefined, { 
+      displayDate.textContent = `Sealed with love on ${today.toLocaleDateString(undefined, { 
         year: 'numeric', month: 'long', day: 'numeric' 
       })}`;
     }
@@ -151,7 +151,7 @@ const PromisesModule = (function() {
     }
 
     if (signBtn) {
-      signBtn.textContent = "✓ Agreement Ratified & Sealed";
+      signBtn.textContent = "✓ Promises Sealed With Love 💕";
       signBtn.disabled = true;
     }
 

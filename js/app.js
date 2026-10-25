@@ -62,7 +62,7 @@ function setupEntranceInteraction() {
     }
 
     if (enterBtn) {
-      enterBtn.textContent = "Entering Archives...";
+      enterBtn.textContent = "Stepping inside...";
       enterBtn.disabled = true;
     }
 

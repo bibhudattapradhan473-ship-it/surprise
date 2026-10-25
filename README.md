@@ -1,25 +1,25 @@
-# Museum of Our Friendship — Interactive Surprise Experience
+# Our Love Story — A Romantic Surprise Experience
 
-A cinematic, multi-room digital experience where your friend enters a virtual museum of your friendship, discovers shared milestones, pieces together a memory jigsaw puzzle, opens an intimate letter sealed with wax, ratifies a 5-clause friendship covenant, and reaches a permanent collection reveal.
+A cinematic, multi-room digital experience created by a boyfriend for his girlfriend — celebrating your love story, shared milestones, reconstructing a special memory jigsaw puzzle, opening an intimate love letter sealed with wax, sealing 5 heartfelt relationship promises, and arriving at a romantic grand finale.
 
 Built entirely with standard **HTML5, CSS3, and Vanilla JavaScript** — zero frameworks, zero external build tools, and 100% static hosting ready (ideal for **GitHub Pages**).
 
 ---
 
-## 🏛️ Room Sequence & Experience Flow
+## 🌹 Room Sequence & Experience Flow
 
-1. **Stage 1 — Cinematic Welcome (Museum Entrance):**
-   Atmospheric dark lobby (`#10151D`), warm overhead spotlight, floating museum dust motes, and a 3D architectural double door with brass plaque. Clicking the entrance triggers a 3D door opening animation, light emergence, and smoothly transitions to Room 02 while starting background audio.
-2. **Stage 2 — Room 02: The Archives (Timeline):**
-   Editorial warm cream paper aesthetic (`#F6F0E3`). Prominently calculates and animates the live day count from your configured start date, along with honest supporting milestones (years together, weekends shared, seasons weathered, and late-night chats).
-3. **Stage 3 — Room 04: Reconstructing Memories (Photo Puzzle):**
-   Fully playable 3x3 photo jigsaw puzzle. Supports mouse and touchscreen click/tap swapping. Features move tracking, elapsed timer, hint preview toggle, shuffle, and automatic win detection that unlocks Room 06.
-4. **Stage 4 — Room 06: The Reading Room (Letter):**
-   Interactive 3D illustrated envelope sealed with an antique wax seal. Tapping the seal breaks it and folds open the flap, revealing an unfolding archival letter with customizable paragraphs and signature.
-5. **Stage 5 — Room 07: The Covenant (Friendship Promises):**
-   Formal 5-clause friendship agreement. Custom interactive checkboxes and signature field. Ratification button is strictly enabled **only** when all 5 clauses are checked AND a non-empty signature is provided. Upon signing, displays a certified red wax seal stamp, timestamp, and signature certificate.
-6. **Stage 6 — Grand Finale (Permanent Collection):**
-   Culmination of the journey featuring a gilded masterpiece frame, heartwarming reflection, floating celebratory confetti, and a replay button to walk through the exhibition again.
+1. **Stage 1 — Cinematic Welcome (Stepping Inside):**
+   Atmospheric dark lobby (`#10151D`), warm overhead spotlight, floating dust motes, and a 3D architectural double door. Clicking the entrance triggers a 3D door opening animation, warm light emergence, and smoothly transitions to Room 02 while starting gentle background audio.
+2. **Stage 2 — Room 02: Our Story (Timeline):**
+   Editorial warm cream paper aesthetic (`#F6F0E3`). Prominently calculates and animates the live day count of loving each other (or custom fixed days), along with meaningful romantic milestones (years by each other's side, weekends shared, seasons hand in hand, and late-night talks).
+3. **Stage 3 — Room 04: Our Moments (Photo Puzzle):**
+   Fully playable 3x3 photo jigsaw puzzle featuring a sweet shared memory. Supports mouse and touchscreen click/tap swapping. Features move tracking, elapsed timer, hint preview toggle, shuffle, and automatic win detection that unlocks the love letter.
+4. **Stage 4 — Room 06: From My Heart (Love Letter):**
+   Interactive 3D illustrated envelope sealed with an antique wax seal. Tapping the seal breaks it and folds open the flap, revealing an unfolding love letter with customizable paragraphs and signature.
+5. **Stage 5 — Room 07: Our Promises (Relationship Promises):**
+   Five genuine romantic relationship promises (listening and honest communication, making time for each other, respect and boundaries, being a safe harbor on hard days, and choosing teamwork and kindness). Custom interactive checkboxes and signature field. The sealing button is enabled only when all 5 promises are read/checked AND a signature is entered. Upon signing, displays a sealed stamp and certificate.
+6. **Stage 6 — Forever (Grand Finale):**
+   Culmination of the journey featuring a gilded memory frame, heartwarming reflection, floating celebratory confetti, and a replay button to walk through your story again.
 
 ---
 
@@ -27,7 +27,7 @@ Built entirely with standard **HTML5, CSS3, and Vanilla JavaScript** — zero fr
 
 ```
 d:\something new/
-├── index.html                   # Master single-page museum container
+├── index.html                   # Master single-page container
 ├── README.md                    # Documentation & customization guide
 ├── css/
 │   ├── variables.css            # Design tokens, color palette, typography scales
@@ -50,15 +50,15 @@ d:\something new/
 │   ├── final.js                 # Canvas confetti particles & replay controller
 │   └── app.js                   # Master coordinator
 └── assets/
-    ├── illustrations/           # Scalable museum artwork
+    ├── illustrations/           # Scalable artwork
     │   ├── museum_door.svg      # Classical 3D architectural double door
-    │   ├── wax_seal.svg         # Antique ruby wax seal with embossed crest
-    │   └── stamp_verified.svg   # Archival "Ratified & Sealed" certificate stamp
+    │   ├── wax_seal.svg         # Antique ruby wax seal with embossed heart crest
+    │   └── stamp_verified.svg   # "Sealed with Love" certificate stamp
     ├── images/
-    │   ├── puzzle_memory.svg    # Sunset rooftop friends memory (jigsaw photo)
-    │   └── celebration_memory.svg # Gilded exhibition centerpiece painting
+    │   ├── puzzle_memory.svg    # Sunset memory photo (jigsaw photo)
+    │   └── celebration_memory.svg # Gilded centerpiece artwork
     └── audio/
-        └── friendship_theme.mp3 # Warm background music
+        └── friendship_theme.mp3 # Romantic background music
 ```
 
 ---
@@ -67,54 +67,57 @@ d:\something new/
 
 All personal content is centralized in **`js/config.js`**. You do **not** need to touch HTML or CSS to customize names, dates, promises, or messages!
 
-### 1. Change Names & Friendship Start Date
+### 1. Change Names & Relationship Start Date
 Open [`js/config.js`](file:///d:/something%20new/js/config.js):
 ```javascript
-friendName: "Your Friend's Name",
+friendName: "Her Name (or My Favorite Person)",
 senderName: "Your Name",
 
-// Enter the date your friendship began in "YYYY-MM-DD" format:
-friendshipStartDate: "2022-08-04",
+// Explicit number of days, or set to null to auto-calculate from friendshipStartDate:
+friendshipDays: 940,
+
+// Enter the date your relationship began in "YYYY-MM-DD" format:
+friendshipStartDate: "2024-03-29",
 ```
-*Note: The website automatically calculates exact days, years, weekends, and seasons up to the present day.*
+*Note: You can specify `friendshipDays` directly (e.g. 940) or provide a start date to automatically calculate exact days, years, weekends, and seasons up to the present day.*
 
 ### 2. Personalize the Welcome Stage
 In [`js/config.js`](file:///d:/something%20new/js/config.js):
 ```javascript
 welcome: {
-  badge: "PRIVATE EXHIBITION · ROOM 01",
-  title: "Museum of Our Friendship",
-  subtitle: "A digital archive of laughter, shared secrets, quiet support...",
-  enterButtonText: "Step Inside The Museum →"
+  badge: "FOR YOU, MY LOVE · ROOM 01",
+  title: "Every Little Piece of Us",
+  subtitle: "A little world created just for you...",
+  enterButtonText: "Step Inside Our Story →"
 }
 ```
 
-### 3. Personalize the Personal Letter (Room 06)
+### 3. Personalize the Love Letter (Room 06)
 In [`js/config.js`](file:///d:/something%20new/js/config.js):
 ```javascript
 letter: {
-  salutation: "Dearest Friend,",
-  date: "A Day to Remember",
+  salutation: "My Love,",
+  date: "A Moment For Us",
   paragraphs: [
     "Your first paragraph here...",
     "Your second paragraph here...",
     "Your third paragraph here..."
   ],
-  closing: "With love and boundless gratitude,",
+  closing: "With all my love,",
   signature: "Your Name"
 }
 ```
 
-### 4. Customize the 5 Friendship Promises (Room 07)
+### 4. Customize the 5 Promises (Room 07)
 In [`js/config.js`](file:///d:/something%20new/js/config.js):
 ```javascript
 promises: {
   list: [
-    { id: "promise-1", title: "Clause I — ...", text: "..." },
-    { id: "promise-2", title: "Clause II — ...", text: "..." },
-    { id: "promise-3", title: "Clause III — ...", text: "..." },
-    { id: "promise-4", title: "Clause IV — ...", text: "..." },
-    { id: "promise-5", title: "Clause V — ...", text: "..." }
+    { id: "promise-1", title: "Promise I — ...", text: "..." },
+    { id: "promise-2", title: "Promise II — ...", text: "..." },
+    { id: "promise-3", title: "Promise III — ...", text: "..." },
+    { id: "promise-4", title: "Promise IV — ...", text: "..." },
+    { id: "promise-5", title: "Promise V — ...", text: "..." }
   ]
 }
 ```

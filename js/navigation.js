@@ -6,11 +6,11 @@ const Navigation = (function() {
   // Defined sequential room progression
   const ROOMS = [
     { id: 'room-welcome', num: '01', label: 'Welcome' },
-    { id: 'room-timeline', num: '02', label: 'Archives' },
-    { id: 'room-puzzle', num: '04', label: 'Puzzle' },
-    { id: 'room-letter', num: '06', label: 'Letter' },
-    { id: 'room-promises', num: '07', label: 'Covenant' },
-    { id: 'room-final', num: 'FINALE', label: 'Finale' }
+    { id: 'room-timeline', num: '02', label: 'Our Story' },
+    { id: 'room-puzzle', num: '04', label: 'Moments' },
+    { id: 'room-letter', num: '06', label: 'My Heart' },
+    { id: 'room-promises', num: '07', label: 'Promises' },
+    { id: 'room-final', num: 'FINALE', label: 'Forever' }
   ];
 
   let currentRoomIndex = 0;

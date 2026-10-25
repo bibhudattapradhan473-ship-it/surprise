@@ -3,7 +3,7 @@
  * Computes exact duration arithmetic, leap years, and supporting milestones.
  */
 
-const TimelineModule = (function() {
+const TimelineModule = (function () {
   let calculatedStats = {
     days: 0,
     years: "0",
@@ -20,27 +20,33 @@ const TimelineModule = (function() {
   }
 
   function calculateFriendshipStats() {
-    const rawDate = CONFIG.friendshipStartDate;
-    const startDate = new Date(rawDate);
-    const today = new Date();
+    let diffDays;
 
-    // Verify valid date
-    if (isNaN(startDate.getTime())) {
-      console.warn("Invalid friendshipStartDate provided:", rawDate);
-      calculatedStats.days = 1000;
-      calculatedStats.years = "2.7";
-      calculatedStats.weekends = 280;
-      calculatedStats.seasons = 11;
-      calculatedStats.conversations = 1800;
-      return;
+    if (typeof CONFIG.friendshipDays === 'number' && !isNaN(CONFIG.friendshipDays)) {
+      diffDays = Math.max(0, Math.round(CONFIG.friendshipDays));
+    } else {
+      const rawDate = CONFIG.friendshipStartDate;
+      const startDate = new Date(rawDate);
+      const today = new Date();
+
+      // Verify valid date
+      if (isNaN(startDate.getTime())) {
+        console.warn("Invalid friendshipStartDate provided:", rawDate);
+        calculatedStats.days = 940;
+        calculatedStats.years = "2.6";
+        calculatedStats.weekends = 268;
+        calculatedStats.seasons = 10;
+        calculatedStats.conversations = 380;
+        return;
+      }
+
+      // Zero out time components for honest calendar-day difference
+      const startUTC = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+      const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+
+      const diffMs = todayUTC - startUTC;
+      diffDays = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
     }
-
-    // Zero out time components for honest calendar-day difference
-    const startUTC = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
-    const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
-
-    const diffMs = todayUTC - startUTC;
-    const diffDays = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
 
     calculatedStats.days = diffDays;
     // Leap-year adjusted year arithmetic
@@ -49,8 +55,13 @@ const TimelineModule = (function() {
     calculatedStats.weekends = Math.floor((diffDays / 7) * 2);
     // 4 seasons per 365.25 days (~91.3 days per season)
     calculatedStats.seasons = Math.floor(diffDays / 91.3);
-    // Countless shared conversations / smiles
-    calculatedStats.conversations = Math.floor(diffDays * 1.75);
+    // Countless shared conversations / late-night chats
+    const customChats = CONFIG.timeline?.lateNightChats ?? CONFIG.lateNightChats ?? CONFIG.timeline?.conversations;
+    if (typeof customChats === 'number' && !isNaN(customChats)) {
+      calculatedStats.conversations = customChats;
+    } else {
+      calculatedStats.conversations = 380;
+    }
   }
 
   function populateDOM() {
