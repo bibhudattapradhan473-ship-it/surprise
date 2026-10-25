@@ -4,11 +4,9 @@
 
 #room-welcome {
   min-height: 100vh;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
   overflow: hidden;
   background: radial-gradient(circle at 50% 35%, #1C2433 0%, #10151D 70%, #0A0D12 100%);
   padding: 2rem 1.5rem;
@@ -20,7 +18,8 @@
   top: -150px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
+  width: min(600px, 100vw);
+  max-width: 100vw;
   height: 900px;
   background: radial-gradient(ellipse at 50% 0%, rgba(233, 154, 45, 0.22) 0%, rgba(23, 111, 101, 0.08) 45%, transparent 75%);
   pointer-events: none;
@@ -153,8 +152,8 @@
   }
   
   .door-portal-stage {
-    width: 270px;
-    height: 350px;
+    width: min(270px, 85vw);
+    height: min(350px, 110vw);
     margin-bottom: 2rem;
   }
 }

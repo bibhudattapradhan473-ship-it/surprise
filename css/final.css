@@ -6,7 +6,6 @@
   background: radial-gradient(circle at 50% 30%, #1C2738 0%, #10151D 65%, #0B0E14 100%);
   color: var(--color-dark-text);
   min-height: 100vh;
-  position: relative;
   overflow: hidden;
 }
 
@@ -126,6 +125,6 @@
   }
   
   .final-artwork-stage {
-    width: 290px;
+    width: min(290px, 90vw);
   }
 }
