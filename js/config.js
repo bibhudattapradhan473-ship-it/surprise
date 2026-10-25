@@ -133,7 +133,7 @@ const CONFIG = {
 
   // 9. AUDIO SETTINGS
   audio: {
-    filePath: "assets/audio/friendship_theme.mp3",
+    filePath: "assets/audio/my-love-song.mp3",
     defaultVolume: 0.45,
     enableChimeFallback: true // Synthesizes a soothing ambient chord if audio file is unavailable or blocked
   }

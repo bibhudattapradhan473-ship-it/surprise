@@ -58,7 +58,7 @@ d:\something new/
     │   ├── puzzle_memory.svg    # Sunset memory photo (jigsaw photo)
     │   └── celebration_memory.svg # Gilded centerpiece artwork
     └── audio/
-        └── friendship_theme.mp3 # Romantic background music
+        └── my-love-song.mp3     # Romantic background music
 ```
 
 ---
